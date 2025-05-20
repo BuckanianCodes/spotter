@@ -3,10 +3,61 @@
         <img src="spotterlogo.png" alt="logo" width="50">
         <h1 class="logo-text text-lg font-[roboto]">spotter</h1>
     </div>
-    <div class="nav-links flex items-center justify-between gap-8">
-       <button class="bg-[#051930] text-white px-8 py-1 rounded">login</button>
-       <button>
-        <i class="fa fa-bars"></i>
+    <div class="big-screen hidden lg:flex">
+        <ul class="flex items-center justify-center text-sm gap-4">
+            <li>Product</li>
+            <li>Use Cases</li>
+            <li>Developers</li>
+            <li>Resources</li>
+            <li>Demo</li>
+            <li>Pricing</li>
+        </ul>
+    </div>
+    <div class="nav-links flex items-center text-sm justify-between gap-8">
+       <button class="border border-[#051930]  text-[#051930] sm:flex hidden  px-8 py-1 rounded">login</button>
+       <button class="bg-[#051930] border border-[#051930] text-white px-8 py-1 sm:flex hidden rounded">Get Started</button>
+       <button class="lg:hidden flex cursor-pointer">
+        <i class="fa fa-bars fa-2x" (click)="open()"></i>
+       </button>
+       <button *ngIf="isOpen" (click)="close()">
+        <i  class="fa fa-times fa-2x cursor-pointer"></i>
        </button>
     </div>
+    <div *ngIf="isOpen" data-aos="fade-right" class="small-screen mt-20 lg:hidden absolute w-screen  bg-white h-screen z-[999] bottom-0 top-0 left-0 right-0">
+            <ul class="flex items-start flex-col h-full text-lg  justify-start mt-20 text-sm gap-6">
+            <li class="text-lg pl-6 pb-6 text-gray-700 border-b-2 w-full border-dotted border-gray-300">
+                <a href="">Product</a>
+                </li>
+            <li class="text-lg pl-6 pb-6 text-gray-700 border-b-2 w-full border-dotted border-gray-300">
+                <a href="">
+                    Use Cases
+                </a>
+            </li>
+            <li class="text-lg pl-6 pb-6 text-gray-700 border-b-2 w-full border-dotted border-gray-300">
+                <a href="">
+                    Developers
+                </a>
+            </li>
+            <li class="text-lg pl-6 pb-6  text-gray-700 border-b-2 w-full border-dotted border-gray-300">
+                <a href="">
+                    Resources
+                </a>
+            </li>
+            <li class="text-lg pl-6 pb-6 text-gray-700 border-b-2 w-full border-dotted border-gray-300">
+                <a href="">
+                    Demo
+                </a>
+            </li>
+            <li class="text-lg pl-6 pb-6 text-gray-700 border-b-2 w-full border-dotted border-gray-300">
+                <a href="">
+                    Pricing
+                </a>
+            </li>
+            <div class="flex items-center justify-center w-full">
+                <button class="w-[90%] flex items-center justify-center  px-6 py-4 rounded bg-[#fafafa] border border-gray-300">Get Started</button>
+            </div>
+        </ul>
+         
+    </div>
+  
 </div>
